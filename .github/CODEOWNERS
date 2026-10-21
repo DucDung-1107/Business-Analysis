@@ -1,0 +1,4 @@
+# Leader reviews all code until actual teammate GitHub handles are assigned.
+* @Nituv05
+# Add role-specific owners AFTER the fallback above; later matches take precedence.
+# Keep leader as co-owner of contracts, integration, config, API and CI.

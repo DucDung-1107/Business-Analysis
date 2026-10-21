@@ -1,0 +1,66 @@
+{
+  "$defs": {
+    "Prediction": {
+      "additionalProperties": false,
+      "properties": {
+        "customer_id": {
+          "minLength": 1,
+          "pattern": "^\\S+$",
+          "title": "Customer Id",
+          "type": "string"
+        },
+        "risk_score": {
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Risk Score",
+          "type": "number"
+        },
+        "segment_id": {
+          "title": "Segment Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "customer_id",
+        "risk_score",
+        "segment_id"
+      ],
+      "title": "Prediction",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "mode": {
+      "const": "demo",
+      "title": "Mode",
+      "type": "string"
+    },
+    "contract_version": {
+      "title": "Contract Version",
+      "type": "string"
+    },
+    "model_versions": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "title": "Model Versions",
+      "type": "object"
+    },
+    "predictions": {
+      "items": {
+        "$ref": "#/$defs/Prediction"
+      },
+      "title": "Predictions",
+      "type": "array"
+    }
+  },
+  "required": [
+    "mode",
+    "contract_version",
+    "model_versions",
+    "predictions"
+  ],
+  "title": "PredictResponse",
+  "type": "object"
+}

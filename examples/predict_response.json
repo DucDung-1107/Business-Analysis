@@ -1,0 +1,25 @@
+{
+  "mode": "demo",
+  "contract_version": "1.0",
+  "model_versions": {
+    "classifier": "demo-classifier-v1",
+    "segmenter": "demo-segmenter-v1"
+  },
+  "predictions": [
+    {
+      "customer_id": "DEMO-0000",
+      "risk_score": 0.41300000000000003,
+      "segment_id": "demo-1"
+    },
+    {
+      "customer_id": "DEMO-0001",
+      "risk_score": 0.325,
+      "segment_id": "demo-1"
+    },
+    {
+      "customer_id": "DEMO-0002",
+      "risk_score": 0.404,
+      "segment_id": "demo-0"
+    }
+  ]
+}

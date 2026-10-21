@@ -1,0 +1,25 @@
+name: Backbone CI
+on:
+  pull_request:
+  push:
+    branches: [main]
+jobs:
+  contracts-and-integration:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ['3.11', '3.12']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+      - run: python -m pip install -e '.[dev]'
+      - run: ruff check src app tests
+      - run: pytest -q
+      - run: churn demo
+      - uses: actions/upload-artifact@v4
+        with:
+          name: demo-artifacts-${{ matrix.python-version }}
+          path: artifacts/demo/
