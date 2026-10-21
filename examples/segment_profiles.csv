@@ -1,0 +1,3 @@
+segment_id,segment_name,description,customer_count
+demo-0,Demo activity group 0,Rule-based fixture; replace with an evidence-based cluster profile.,1
+demo-1,Demo activity group 1,Rule-based fixture; replace with an evidence-based cluster profile.,2

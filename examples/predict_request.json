@@ -1,0 +1,35 @@
+{
+  "contract_version": "1.0",
+  "customers": [
+    {
+      "customer_id": "DEMO-0000",
+      "age": 23,
+      "balance": 64386.51,
+      "transaction_count": 75,
+      "transaction_amount": 5001.56,
+      "login_count": 107,
+      "complaint_count": 4,
+      "mobile_share": 0.7333333333333333
+    },
+    {
+      "customer_id": "DEMO-0001",
+      "age": 62,
+      "balance": 82276.16,
+      "transaction_count": 37,
+      "transaction_amount": 2051.64,
+      "login_count": 115,
+      "complaint_count": 3,
+      "mobile_share": 0.7027027027027027
+    },
+    {
+      "customer_id": "DEMO-0002",
+      "age": 55,
+      "balance": 44341.42,
+      "transaction_count": 97,
+      "transaction_amount": 6597.89,
+      "login_count": 36,
+      "complaint_count": 3,
+      "mobile_share": 0.7319587628865979
+    }
+  ]
+}

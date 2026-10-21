@@ -1,0 +1,4 @@
+customer_id,age,balance,transaction_count,transaction_amount,login_count,complaint_count,mobile_share
+DEMO-0000,23,64386.51,75,5001.56,107,4,0.7333333333333333
+DEMO-0001,62,82276.16,37,2051.64,115,3,0.7027027027027027
+DEMO-0002,55,44341.42,97,6597.89,36,3,0.7319587628865979
