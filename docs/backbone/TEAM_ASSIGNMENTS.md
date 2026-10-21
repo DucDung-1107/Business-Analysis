@@ -1,5 +1,7 @@
 # Five-person work assignment and handoff
 
+Use [Four-week delivery plan](FOUR_WEEK_PLAN.md) for weekly tasks, deadlines, acceptance gates and the compressed three-week schedule. This page defines the stable role boundaries.
+
 Assign actual names to the roles below at kick-off. Each member begins with `churn demo` and their test commands. Existing fixtures let everyone work in parallel. Code and documentation are English. Leader: @Nituv05.
 
 | Role | Own modules | Prerequisite | Required deliverables |

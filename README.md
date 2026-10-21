@@ -2,7 +2,7 @@
 
 A runnable integration scaffold for a five-person Business Analytics capstone. All supplied data, risk scores and segments are **demo fixtures**. No real model has been trained, and no next-quarter predictive performance is claimed. No previous assignment data is used.
 
-Start with [Team assignments](docs/backbone/TEAM_ASSIGNMENTS.md) and [I/O contracts](docs/backbone/CONTRACTS.md). The leader owns integration; members replace their module implementations while keeping contracts stable.
+Start with [Four-week delivery plan](docs/backbone/FOUR_WEEK_PLAN.md), [Team assignments](docs/backbone/TEAM_ASSIGNMENTS.md) and [I/O contracts](docs/backbone/CONTRACTS.md). The leader owns integration; members replace their module implementations while keeping contracts stable.
 
 ## Setup
 
