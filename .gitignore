@@ -9,3 +9,12 @@ __pycache__/
 artifacts/
 data/raw/*
 !data/raw/.gitkeep
+data/processed/*
+!data/processed/.gitkeep
+!data/processed/README.md
+!data/processed/*/
+data/processed/*/*
+!data/processed/*/README.md
+!data/processed/*/augmentation_manifest_*.json
+reports/segmentation/*/segment_assignments.csv
+reports/segmentation/*/*.log

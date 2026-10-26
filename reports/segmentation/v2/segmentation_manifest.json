@@ -1,0 +1,135 @@
+{
+  "behavior_generation_version": "synthetic-behavior-v2",
+  "data_version": "v1-90f6625c31bd-baeb8804",
+  "feature_preprocessing": {
+    "clip_lower": {
+      "active_month_ratio": 0.6666666666666666,
+      "app_active_days_mean": 1.8333333333333333,
+      "avg_monthly_inflow": 0.0,
+      "avg_monthly_logins": 0.9162907318741551,
+      "avg_monthly_spend": 3.5446717481156176,
+      "avg_monthly_transactions": 0.8472978603872036,
+      "avg_transaction_value": 3.0165492291232594,
+      "cash_withdrawal_share": 0.13068915818347665,
+      "complaints_per_100_interactions": 0.0,
+      "complaints_per_month": 0.0,
+      "digital_transaction_share": 0.25,
+      "failed_payments_per_month": 0.0,
+      "inflow_regularity": 0.0,
+      "login_trend_ratio": 0.3684210526315789,
+      "recency_periods": 0.0,
+      "transaction_trend_ratio": 0.3599483870967743,
+      "unresolved_case_share": 0.0
+    },
+    "clip_upper": {
+      "active_month_ratio": 1.0,
+      "app_active_days_mean": 12.833333333333334,
+      "avg_monthly_inflow": 9.686584223836658,
+      "avg_monthly_logins": 2.3826278006675823,
+      "avg_monthly_spend": 5.481476551897409,
+      "avg_monthly_transactions": 2.100060828882572,
+      "avg_transaction_value": 3.8047043164706107,
+      "cash_withdrawal_share": 0.2106534761341126,
+      "complaints_per_100_interactions": 2.03688192726104,
+      "complaints_per_month": 0.2876820724517809,
+      "digital_transaction_share": 0.9,
+      "failed_payments_per_month": 0.2876820724517809,
+      "inflow_regularity": 1.0,
+      "login_trend_ratio": 2.6,
+      "recency_periods": 1.0,
+      "transaction_trend_ratio": 2.846153846153846,
+      "unresolved_case_share": 1.0
+    },
+    "feature_columns": [
+      "avg_monthly_transactions",
+      "avg_monthly_spend",
+      "avg_monthly_logins",
+      "complaints_per_month",
+      "digital_transaction_share",
+      "active_month_ratio",
+      "recency_periods",
+      "avg_transaction_value",
+      "transaction_trend_ratio",
+      "login_trend_ratio",
+      "complaints_per_100_interactions",
+      "avg_monthly_inflow",
+      "inflow_regularity",
+      "cash_withdrawal_share",
+      "failed_payments_per_month",
+      "app_active_days_mean",
+      "unresolved_case_share"
+    ],
+    "log1p_features": [
+      "avg_monthly_inflow",
+      "avg_monthly_logins",
+      "avg_monthly_spend",
+      "avg_monthly_transactions",
+      "avg_transaction_value",
+      "complaints_per_100_interactions",
+      "complaints_per_month",
+      "failed_payments_per_month"
+    ],
+    "scaling": "StandardScaler fit on the segmentation discovery cohort; not an inference artifact.",
+    "winsorisation_quantiles": [
+      0.01,
+      0.99
+    ]
+  },
+  "full_cohort_assignment": "Selected model refit on the full cohort after candidate selection.",
+  "input_hashes": {
+    "customers_clean.csv": "1f9d77b83f4eca91c6b7e6d97aaaf806ab84a328558b0daac4e96285b6dbcdfa",
+    "labels_clean.csv": "8c05346a0ed58e4df2edfb12aeeb3cee3debe9d6d95937681d4f823c23237513"
+  },
+  "limitations": [
+    "Clusters are based on synthetic behaviour and cannot demonstrate real customer behaviour or demand.",
+    "Persona pain/need/journey fields are synthetic scenario design inputs, not observed customer statements or churn reasons.",
+    "Churn cross-tabs are descriptive static-label associations, not prospective prediction, treatment uplift or causality.",
+    "No CLV, cost or intervention outcome supports financial return claims."
+  ],
+  "mode": "illustrative_synthetic_extension",
+  "raw_to_canonical_segment_id": {
+    "0": "segment_01",
+    "1": "segment_02"
+  },
+  "segmentation_version": "behavioral-segmentation-v2",
+  "selected_candidate": {
+    "calinski_harabasz": 491.0611748084008,
+    "candidate_id": "kmeans_k2",
+    "davies_bouldin": 1.9201964294127674,
+    "eligible": true,
+    "method": "kmeans",
+    "minimum_cluster_share": 0.491,
+    "n_clusters": 2,
+    "selection_score": 0.8833333333333334,
+    "silhouette": 0.19133329816783962,
+    "stability_ari": 0.9791276301628248
+  },
+  "selection_protocol": {
+    "cluster_range": [
+      2,
+      6
+    ],
+    "evaluation_sample_rule": "Fixed-seed simple random sample drawn before clustering; no labels are used.",
+    "evaluation_sample_size": 2000,
+    "methods": [
+      "kmeans",
+      "gaussian_mixture",
+      "agglomerative_ward"
+    ],
+    "minimum_cluster_share": 0.05,
+    "score_weights": {
+      "calinski_harabasz": 0.1,
+      "davies_bouldin": 0.2,
+      "silhouette": 0.4,
+      "stability_ari": 0.3
+    },
+    "silhouette_sample_size": 1000,
+    "stability_repeats": 8
+  },
+  "synthetic_assumptions": {
+    "outcome_independence": "The behaviour generator accepts customer attributes only; it does not read, receive or condition on churn labels.",
+    "periods": 6,
+    "seed": 20261026,
+    "time_limitation": "period_index is a simulated sequence, not a real observation window or temporal validation basis."
+  }
+}

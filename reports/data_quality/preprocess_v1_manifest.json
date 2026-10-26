@@ -1,0 +1,60 @@
+{
+  "audit": {
+    "duplicate_customer_ids_before_cleaning": 0,
+    "duplicate_rows_before_cleaning": 0,
+    "ignored_source_columns": [],
+    "label_summary": {
+      "negative_count": 7963,
+      "positive_count": 2037,
+      "positive_prevalence": 0.2037
+    },
+    "nulls_after_cleaning": {
+      "active_member": 0,
+      "age": 0,
+      "balance": 0,
+      "country": 0,
+      "credit_card": 0,
+      "credit_score": 0,
+      "customer_id": 0,
+      "estimated_salary": 0,
+      "gender": 0,
+      "products_number": 0,
+      "source_type": 0,
+      "tenure": 0
+    },
+    "nulls_before_cleaning": {
+      "active_member": 0,
+      "age": 0,
+      "balance": 0,
+      "churn": 0,
+      "country": 0,
+      "credit_card": 0,
+      "credit_score": 0,
+      "customer_id": 0,
+      "estimated_salary": 0,
+      "gender": 0,
+      "products_number": 0,
+      "tenure": 0
+    },
+    "row_policy": "No imputation or row deletion; fail on a critical schema, null, duplicate, or bounds violation.",
+    "rows_dropped": 0,
+    "rows_output": 10000,
+    "rows_read": 10000,
+    "target_separation": {
+      "included_in_customer_table": false,
+      "label_column": "churn",
+      "rule": "The target is written only to labels_clean.csv and is unavailable to preprocessing outputs intended as features."
+    }
+  },
+  "config_sha256": "baeb88044b003dd95485dcc9413d6fbb93aa6c9e72430c387b68995fe5065661",
+  "data_version": "v1-90f6625c31bd-baeb8804",
+  "label_definition": "Static source column 'churn'; no prospectively validated next-quarter outcome is available.",
+  "output_files": {
+    "customers_clean.csv": "1f9d77b83f4eca91c6b7e6d97aaaf806ab84a328558b0daac4e96285b6dbcdfa",
+    "labels_clean.csv": "8c05346a0ed58e4df2edfb12aeeb3cee3debe9d6d95937681d4f823c23237513"
+  },
+  "preprocessing_version": "kaggle-static-preprocess-v1",
+  "source_file": "Bank Customer Churn Prediction.csv",
+  "source_file_sha256": "90f6625c31bdfcb0cde3b94c4f3004e43795e382921d0a5be67c4bd490b38818",
+  "source_type": "kaggle_base"
+}

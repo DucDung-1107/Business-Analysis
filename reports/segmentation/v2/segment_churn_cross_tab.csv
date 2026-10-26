@@ -1,0 +1,3 @@
+segment_id,customer_count,historical_churn_count,historical_churn_rate,churn_rate_ci95_low,churn_rate_ci95_high,overall_historical_churn_rate,rate_difference_vs_overall,historical_churn_exposure,interpretation
+segment_01,5019,713,0.14206017134887428,0.13267519412086742,0.15199267197309818,0.2037,-0.061639828651125717,713,Descriptive static-label cross-tab only; it is not a prospective risk score or causal treatment opportunity.
+segment_02,4981,1324,0.2658100782975306,0.2537255640999233,0.2782555524113818,0.2037,0.062110078297530624,1324,Descriptive static-label cross-tab only; it is not a prospective risk score or causal treatment opportunity.

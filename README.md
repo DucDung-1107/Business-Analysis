@@ -4,6 +4,18 @@ A runnable integration scaffold for a five-person Business Analytics capstone. A
 
 Start with [Four-week delivery plan](docs/backbone/FOUR_WEEK_PLAN.md), [Team assignments](docs/backbone/TEAM_ASSIGNMENTS.md) and [I/O contracts](docs/backbone/CONTRACTS.md). The leader owns integration; members replace their module implementations while keeping contracts stable.
 
+## Static Kaggle preprocessing v1
+
+The supplied `data/raw/Bank Customer Churn Prediction.csv` is handled by a separate, deterministic preprocessing path; it does not replace the deliberately small demo fixture. Run:
+
+```bash
+churn preprocess --config configs/preprocess_v1.json
+```
+
+It writes cleaned customer attributes and a separate label table to `data/processed/kaggle_churn_v1/`, plus a SHA-256 provenance and quality manifest at `reports/data_quality/preprocess_v1_manifest.json`. Raw and processed customer-level files stay out of Git; commit the source code, config, data dictionary and reviewed manifest. See [the v1 data dictionary](docs/data_dictionary_v1.md). The source only supplies a static churn label: no next-quarter prediction or temporal validation is claimed.
+
+Behavioural augmentation and segmentation are a separate derived v2: `churn segment-v2 --config configs/segmentation_v2.json`. It preserves v1 as an immutable base, writes v2 customer-level augmentation to `data/processed/kaggle_churn_v2/`, and writes the aggregate decision evidence to `reports/segmentation/v2/` plus [the final business decision brief](docs/segmentation_v2_business_decision.md).
+
 ## Setup
 
 Use Python 3.11 (CI also checks 3.12). From the repository root:

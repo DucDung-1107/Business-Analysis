@@ -1,0 +1,15 @@
+{
+  "segmentation_version": "behavioral-segmentation-v2",
+  "base_data_dir": "data/processed/kaggle_churn_v1",
+  "augmentation_data_dir": "data/processed/kaggle_churn_v2",
+  "output_dir": "reports/segmentation/v2",
+  "decision_document_path": "docs/segmentation_v2_business_decision.md",
+  "persona_document_path": "docs/segmentation_v2_personas.md",
+  "seed": 20261026,
+  "synthetic_periods": 6,
+  "min_clusters": 2,
+  "max_clusters": 6,
+  "min_cluster_share": 0.05,
+  "stability_repeats": 8,
+  "evaluation_sample_size": 2000
+}

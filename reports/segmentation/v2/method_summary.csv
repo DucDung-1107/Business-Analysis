@@ -1,0 +1,4 @@
+candidate_id,method,n_clusters,silhouette,davies_bouldin,calinski_harabasz,stability_ari,minimum_cluster_share,eligible,selection_score,method_status
+agglomerative_ward_k3,agglomerative_ward,3,0.16454630006034865,2.0873014537532377,321.61186550993335,0.5847516279077375,0.174,True,0.48333333333333334,eligible candidate
+gaussian_mixture_k2,gaussian_mixture,2,0.26235205847249565,2.118706352571013,216.51205122777563,0.6347689065419303,0.114,True,0.65,eligible candidate
+kmeans_k2,kmeans,2,0.19133329816783962,1.9201964294127674,491.0611748084008,0.9791276301628248,0.491,True,0.8833333333333334,eligible candidate

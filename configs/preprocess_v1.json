@@ -1,0 +1,9 @@
+{
+  "preprocessing_version": "kaggle-static-preprocess-v1",
+  "raw_path": "data/raw/Bank Customer Churn Prediction.csv",
+  "output_dir": "data/processed/kaggle_churn_v1",
+  "audit_output_path": "reports/data_quality/preprocess_v1_manifest.json",
+  "source_name": "Bank Customer Churn Prediction Kaggle base extract",
+  "source_type": "kaggle_base",
+  "label_definition": "Static historical churn label supplied in the source as churn; it is not a prospective next-quarter outcome."
+}

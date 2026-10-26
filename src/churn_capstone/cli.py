@@ -3,7 +3,7 @@ import argparse
 import json
 from pathlib import Path
 
-from . import analysis, classification, data, features, monitoring, segmentation
+from . import analysis, classification, data, features, monitoring, preprocessing, segmentation, segmentation_v2
 from .contracts import CONTRACT_VERSION, Customer, FeatureRow, MonthlyBehavior, SegmentProfile, read_table
 from .integration import load_runtime, predict, write_json
 
@@ -79,12 +79,25 @@ STAGES = ("data", "features", "eda", "classifier", "segmentation", "predict", "m
 
 def main():
     parser = argparse.ArgumentParser(description="DEMO ONLY: team integration pipeline")
-    parser.add_argument("stage", choices=("demo",) + STAGES)
+    parser.add_argument("stage", choices=("demo", "preprocess", "segment-v2") + STAGES)
     parser.add_argument("--output", default="artifacts/demo")
     parser.add_argument("--config", default="configs/demo.json")
     args = parser.parse_args()
     try:
         config = json.loads(Path(args.config).read_text(encoding="utf-8"))
+        if args.stage == "preprocess":
+            result = preprocessing.preprocess_kaggle_churn(
+                Path(config["raw_path"]), Path(config["output_dir"]), config
+            )
+            print(f"[preprocess] passed: {result.rows_output} customers; version={result.version_id}")
+            return
+        if args.stage == "segment-v2":
+            result = segmentation_v2.run_segmentation_v2(config)
+            print(
+                f"[segment-v2] passed: method={result.selected_method}; "
+                f"clusters={result.selected_clusters}; report={result.report_path}"
+            )
+            return
         for stage in STAGES if args.stage == "demo" else [args.stage]:
             run_stage(stage, args.output, config)
             print(f"[demo] {stage}: passed")

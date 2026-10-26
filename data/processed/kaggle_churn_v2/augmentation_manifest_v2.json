@@ -1,0 +1,29 @@
+{
+  "augmentation_version": "synthetic-behavior-v2",
+  "data_version": "v1-90f6625c31bd-baeb8804",
+  "generation": {
+    "outcome_independence": "The generator receives no churn label and does not condition values on churn.",
+    "periods": 6,
+    "seed": 20261026,
+    "time_limitation": "period_index is simulated and cannot support temporal or next-quarter claims."
+  },
+  "mode": "illustrative_synthetic_extension",
+  "output_hashes": {
+    "behavioral_rfm_features_v2.csv": "7a1d4e49ab45082fe6bd8d4881dc1d2bc03e02653e71833a0f8de1e2cf463510",
+    "customers_augmented_behavioral_v2.csv": "076111a199808eade497c37a2bba6a4c9b66a528599a4975410e3019451913c9",
+    "synthetic_behavior_v2.csv": "1f4e1c7a4db8bedfa65cb6b9cd1aa06251c4633ce7fb49c2a102307ca297b068",
+    "synthetic_persona_scenarios_v2.csv": "74451ece4ef95ef2f667a97d87e1826160d9333a3e20f6d617ca30e45a3b1772"
+  },
+  "row_grain": {
+    "behavioral_rfm_features_v2.csv": "one customer",
+    "customers_augmented_behavioral_v2.csv": "one customer; static base attributes + synthetic RFM features; churn excluded",
+    "synthetic_behavior_v2.csv": "one customer \u00d7 simulated period",
+    "synthetic_persona_scenarios_v2.csv": "one customer; auditable scenario signals derived from simulated behaviour; churn excluded"
+  },
+  "source_separation": {
+    "kaggle_base": "Static profile attributes are retained with source_type=kaggle_base.",
+    "label": "churn remains only in labels_clean.csv and is excluded from every augmentation output.",
+    "synthetic_behavior": "Generated behavioural/RFM values are marked behavior_source_type=synthetic_behavior.",
+    "synthetic_persona_scenario": "Generated pain/need/journey scenario fields are marked source_type=synthetic_persona_scenario; they are not observed customer statements."
+  }
+}

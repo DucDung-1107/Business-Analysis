@@ -1,0 +1,3 @@
+pilot,segment,arm_a,arm_b,primary_outcome,baseline_assumption,mde_assumption,sample_per_arm,eligibility,hard_stop
+P1_reactivation,segment_lower_digital,service_recovery,reactivation_coach,90_day_active_month_rate,0.5,0.03,4360,eligible_for_experiment; consent and contact-cap verification required,consent breach or unresolved complaint mis-routed
+P2_retention,segment_high_digital,digital_concierge,value_review,90_day_retention,0.85,0.02,4920,eligible_for_experiment; consent and contact-cap verification required,consent breach or complaint/opt-out guardrail breach

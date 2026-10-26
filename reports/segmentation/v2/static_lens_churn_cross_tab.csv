@@ -1,0 +1,11 @@
+lens,group,customer_count,customer_share,historical_churn_count,historical_churn_rate,churn_rate_ci95_low,churn_rate_ci95_high,overall_historical_churn_rate,interpretation
+balance_lens,Positive balance: middle third,2127,0.2127,587,0.2759755524212506,0.25739530544814493,0.29536356691477506,0.2037,Descriptive static-label cross-tab only; it is not a causal churn reason or future-risk estimate.
+balance_lens,Positive balance: upper third,2128,0.2128,493,0.23167293233082706,0.21424019285225476,0.2500727279576216,0.2037,Descriptive static-label cross-tab only; it is not a causal churn reason or future-risk estimate.
+balance_lens,Positive balance: lower third,2128,0.2128,457,0.21475563909774437,0.19782983135233773,0.23270947325641,0.2037,Descriptive static-label cross-tab only; it is not a causal churn reason or future-risk estimate.
+balance_lens,Zero recorded balance,3617,0.3617,500,0.13823610727121924,0.12737105072370122,0.14986880423156665,0.2037,Descriptive static-label cross-tab only; it is not a causal churn reason or future-risk estimate.
+product_lens,4 products,60,0.006,60,1.0,0.9398260695220669,0.9999999999999999,0.2037,Descriptive static-label cross-tab only; it is not a causal churn reason or future-risk estimate.
+product_lens,3 products,266,0.0266,220,0.8270676691729323,0.7770474932595389,0.8677752471926373,0.2037,Descriptive static-label cross-tab only; it is not a causal churn reason or future-risk estimate.
+product_lens,1 product,5084,0.5084,1409,0.27714398111723054,0.26501215228344965,0.2896123470327241,0.2037,Descriptive static-label cross-tab only; it is not a causal churn reason or future-risk estimate.
+product_lens,2 products,4590,0.459,348,0.07581699346405228,0.06850876389711455,0.08383466910240372,0.2037,Descriptive static-label cross-tab only; it is not a causal churn reason or future-risk estimate.
+relationship_lens,Recorded not-active member,4849,0.4849,1302,0.26850897092183956,0.25622158158643066,0.28116286549710906,0.2037,Descriptive static-label cross-tab only; it is not a causal churn reason or future-risk estimate.
+relationship_lens,Recorded active member,5151,0.5151,735,0.14269073966220153,0.13340525056179886,0.15250879187938887,0.2037,Descriptive static-label cross-tab only; it is not a causal churn reason or future-risk estimate.
