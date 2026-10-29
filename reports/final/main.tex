@@ -386,100 +386,73 @@ SLA & Service Level Agreement\\
 % ==================================================
 \section{Introduction}
 
-\subsection{Why customer retention has become a decision problem}
+\paragraph*{The churn problem.}
+Customer churn is the progressive loss of a banking relationship: a customer reduces the share of payments, deposits, borrowing, or service interactions conducted with one provider and eventually moves part or all of that relationship elsewhere. It is more consequential than closing one card or leaving one balance unchanged. Banks lose future transaction activity, product usage, fee and margin opportunities, and the accumulated value of a relationship that took time and money to acquire. The operational challenge is to recognise weakening relationships early enough to respond with a relevant service, product, or communication before the customer has completed the move.
 
-Retail banking is increasingly organised around an ongoing customer relationship rather than a single product sale. A customer can keep a deposit account open while moving routine payments, savings, or credit use to another provider. The operational warning is therefore often weaker and earlier than account closure: fewer meaningful interactions, a failed payment, an unresolved service case, or a relationship that never becomes part of the customer's routine. These signals matter because an account count alone does not show whether the bank remains the customer's primary financial relationship.
+\paragraph*{Why the problem is becoming more urgent.}
+Financial access and digital connectivity now operate at global scale. The World Bank's \textit{Global Findex 2025}, based on nationally representative surveys of about 148,000 adults in 141 economies, reports that 79\% of adults worldwide had a financial account in 2024, up from 51\% in 2011 and 74\% in 2021 \citep{worldbank2025,worldbank2025press}. Account ownership reached 75\% in low- and middle-income economies, while 86\% of adults globally owned a mobile phone \citep{worldbank2025}. This expansion brings banking into the customer's everyday digital environment, where comparison, account opening, payment choice, and customer-service expectations are immediate. In Baringa's 2025 survey of 4,000 retail-banking customers in the United Kingdom and the United States, more than one third had switched provider in the preceding five years, and 62\% said they would switch for a better digital experience \citep{baringa2025}. Retention has therefore become a continuous operating decision rather than a periodic marketing exercise.
 
-The macro context makes this problem timely. The World Bank's \textit{Global Findex 2025} is based on nationally representative surveys of about 148,000 adults in 141 economies and documents how payments, saving, borrowing, mobile connectivity, and digital safety are increasingly intertwined \citep{worldbank2025}. The accompanying World Bank release reports that 79\% of adults globally have a financial account, up from 74\% in 2021 \citep{worldbank2025press}. Greater access is valuable, but it also changes the retention task: customers can hold several relationships and use a mobile interface to compare, transact, or disengage with less friction than in a branch-centred model.
+\paragraph*{The scale of customer exit.}
+Research in financial services shows why banks need to treat attrition as a portfolio problem. Van den Poel and Larivi\`ere analysed a random sample of 47,157 customers from a European financial-services company using longitudinal data; 47\% experienced the churn event during the observation period \citep{vandenpoelLariviere2004}. Their study combines relationship history, customer behaviour, demographics, and macro-environmental conditions, illustrating the breadth of information required to understand attrition over time. Evidence from Asia points to the same need for prioritisation. Ahn, Kim, and Lee examined complete trading records and customer profiles for 458,098 retail customers at a Korean brokerage house; in their study, the density of inactive customers in the top 10\% most-likely-to-churn group was five to six times the unconditional attrition ratio \citep{ahnKimLee2020}. The commercial task is not to contact every customer. It is to direct finite service, CRM, and product capacity toward the relationships where timely action is most likely to matter.
 
-Recent industry evidence illustrates, rather than proves, the commercial pressure. Baringa's 2025 survey of 4,000 retail-banking customers in the United Kingdom and United States found that more than one third had switched provider during the prior five years; 62\% said they would switch for a better digital experience \citep{baringa2025}. Curinos reports that the cost to acquire a checking customer in its United States benchmarks reached US\$559 in 2025, having doubled since 2018 \citep{curinos2026}. Neither figure is transferred to the bank represented in this project: the countries, products, sample frames, currency, and business model differ. They establish the strategic motivation for disciplined retention work, not a financial forecast for this dataset.
+\paragraph*{Why customers switch banks.}
+Bank switching reflects concrete failures and trade-offs that customers encounter. In a study of 694 retail-banking customers in Australia and New Zealand, Colgate and Hedge identified three principal problem areas preceding switching: service failures, pricing problems, and denied services. Pricing problems had the strongest effect on switching, whereas service failures generated more complaints before exit \citep{colgateHedge2001}. The wider service-switching literature reaches a similarly specific conclusion. Keaveney's critical-incident study of more than 500 service customers identified more than 800 switching behaviours and grouped them into eight categories, including price, inconvenience, core-service failure, failed service encounters, inadequate responses to failure, competition, ethical problems, and involuntary switching \citep{keaveney1995}. For a bank, these findings turn churn from an abstract percentage into a set of customer journeys that can be observed, assigned, and improved: failed payments, unclear charges, long waits, poor recovery after an error, and digital tasks that do not work as expected.
 
-The consequence of responding badly is also clear. Treating every customer with a historical churn label as equally contactable can waste finite CRM capacity, create message fatigue, or send a promotion while a service problem is unresolved. Treating a high model score as evidence that an incentive will work is equally unsafe: a propensity model estimates association with a label, whereas treatment effect must be measured against a counterfactual. Conversely, doing nothing leaves product and service teams without a structured way to identify a deteriorating relationship, state the uncertainty, and learn from a controlled intervention.
+\paragraph*{What predictive analytics can change.}
+Churn analytics gives a bank a disciplined way to concentrate attention. Transaction recency and frequency, product use, digital engagement, service cases, and relationship tenure can identify groups whose behaviour differs materially from the broader portfolio. A risk score helps order a review queue; behavioural segmentation clarifies what type of engagement the customer has; eligibility rules protect customers who should not be contacted; and value rules set a cost boundary for the intervention. These components create a decision process rather than a list of names. Each action should specify its customer trigger, channel, owner, cost, expected mechanism, and measurable outcome. Service recovery, for example, requires a different workflow from an onboarding intervention or an explanation of product fees.
 
-This report addresses that gap as a reproducible academic prototype for a digital bank. It begins with a verified static customer extract, builds a clearly labelled synthetic behavioural extension for analytical rehearsal, and turns the output into a governed decision process. The core question is not merely \emph{who may churn?} It is: \emph{which relationship pattern is visible, what action is permissible, what would it cost, and what evidence would show that the action helped?} The answer must remain traceable from source data through analysis to operational choice.
+\paragraph*{The decision question.}
+The central question is therefore not simply \emph{who is likely to churn?} It is \emph{which customers should the bank contact, why, through which channel, at what cost, and how will the bank know whether the action worked?} Answering it requires the integration of churn prediction, behavioural segmentation, customer eligibility, operational capacity, and experimental measurement. The objective of this report is to frame customer retention as a governed decision system: one that directs attention toward the right relationship, proposes a specific next step, and measures whether that step improves customer outcomes and bank performance.
 
-\subsection{Problem statement, objectives, and boundary of claims}
+\section{Problem Statement}
 
-The source dataset contains a static historical field, \texttt{Exited}. It has no observed event timeline, observation window, prediction date, treatment record, campaign outcome, or financial contribution measure. Accordingly, this report uses the label as a historical relationship-exit proxy only. It does \emph{not} call it a next-quarter churn label, infer why an individual left, or claim that a simulated transaction history represents real banking behaviour.
+Bank X is the pseudonymous digital retail bank used for this case. Its customer portfolio comprises 10,000 unique records with credit score, country, gender, age, tenure, balance, product count, card ownership, active-member status, estimated salary, and a relationship-exit label \citep{topreKaggle}. The bank operates across France, Germany, and Spain: France represents 5,014 customers (50.14\%), Germany 2,509 (25.09\%), and Spain 2,477 (24.77\%). The portfolio is primarily a one- or two-product base, with 5,084 customers holding one product and 4,590 holding two. At the same time, 4,849 customers are recorded as inactive members. These are the operating conditions under which Bank X must protect and deepen customer relationships.
 
-Within that boundary, the project has five objectives:
+The immediate business problem is the size and concentration of customer exit. Bank X records 2,037 exits, equivalent to a churn rate of 20.37\% across the portfolio \observed. Churn is not evenly distributed. Germany has 814 exits among 2,509 customers, a rate of 32.44\%, while France and Spain record 16.15\% and 16.67\%, respectively. The inactive-member cohort has a churn rate of 26.85\% (1,302 of 4,849 customers), compared with 14.27\% for active members (735 of 5,151). Product depth shows a similarly pronounced difference: 27.71\% of one-product customers exited (1,409 of 5,084), against 7.58\% of two-product customers (348 of 4,590). For Bank X, the challenge is therefore not simply to reduce an average churn rate; it is to address materially different retention pressures across markets, relationship depth, and customer activity.
 
-\begin{enumerate}[leftmargin=1.1cm]
-    \item audit and preserve the static source, including schema, row counts, missingness, target separation, and hash-based provenance;
-    \item create a label-free six-month behavioural simulation solely to rehearse a customer-event architecture, feature engineering, segmentation, and decision design;
-    \item describe customer cohorts and build behavioural segments without using churn, identifiers, or protected fields as clustering inputs;
-    \item define, but not prematurely claim, a leakage-safe churn-classification protocol using Logistic Regression, Random Forest, and XGBoost; and
-    \item design a staff-facing decision product in which consent, contact caps, unresolved service cases, capacity, economics, and experiment measurement constrain any proposed action.
-\end{enumerate}
+This pattern creates a management problem. A single retention message cannot address a customer whose relationship has weakened, a customer facing an unresolved service issue, and a customer who needs clearer product value. Nor can CRM allocate capacity solely on the basis of a portfolio average. Bank X needs a common decision process that determines which customers merit attention, what type of intervention fits the relationship, which channel and team should deliver it, and how much the bank should be willing to spend. That process must also prevent unsuitable contact, including promotional outreach to customers who require service recovery or who should be suppressed from contact.
 
-The deliverable is therefore a customer-intelligence and retention-decision system, not an automated contact engine. A future score can prioritise human review only after the classification module has been trained and independently evaluated. A future campaign can be scaled only after a randomized pilot demonstrates incremental benefit without worsening complaint, opt-out, or fairness guardrails.
+The business requirement is therefore a customer-intelligence and retention-decision system for Bank X. It must translate the portfolio into actionable customer groups, rank eligible customers by retention priority, and connect each priority to a specific intervention, owner, channel, and cost boundary. Executives need a clear view of where churn is concentrated and where investment should be directed. CRM needs a governed contact queue. Product and Operations need evidence on the journeys most likely to require improvement. Finance needs a transparent basis for evaluating the cost of intervention against the value of retaining a customer. The case asks Bank X to decide where to intervene first, how to intervene, and how to demonstrate that the chosen action improves retention.
 
-\subsection{Report map}
+\section{Background}
 
-Section~2 establishes the banking concepts that determine what the analysis may and may not claim. Section~3 documents the data contract, quality audit, synthetic extension, and analytical plan. Section~4 presents the completed customer-analysis work to date: a two-segment, label-free behavioural baseline, its stability diagnostics, historical-label cross-tabs, and differentiated pilot proposals. Sections~5--7 specify the remaining churn-model, product, MLOps, and experiment work without presenting unfinished components as results. Section~8 gives the recommended 30/60/90-day decision path, and Section~9 records the limitations that must travel with any dashboard, API, or presentation.
+\subsection{Retail banking}
 
-\section{Banking background and decision context}
+Retail banking is a relationship business. Customers use banks to receive income, hold deposits, pay merchants and bills, transfer money, borrow, manage cards, and obtain assistance when a transaction or product does not work as expected. Over time, a relationship normally progresses from onboarding and account funding to regular use, product deepening, and a position as the customer's primary financial provider. Digital banking compresses this journey into a series of app, web, card, payment, and service interactions. Each interaction can strengthen convenience and trust or encourage the customer to divide activity across competing providers.
 
-\subsection{Customer relationship, product relationship, and churn are different objects}
+The relationship is broader than any single account. A customer may close a card while retaining deposits, maintain an open account while moving regular payments elsewhere, or hold a balance without treating the bank as a primary provider. Customer churn refers to the loss of the overall relationship; product attrition refers to the loss of one product; dormancy refers to the absence of qualifying activity over a defined period; and balance flight refers to a sustained reduction in deposits. These are different business events. They require different measures, different customer journeys, and different responses from Product, CRM, and Operations.
 
-In a digital retail bank, the customer lifecycle runs from acquisition and identity verification through funded account, first valuable transaction, routine use, product deepening, declining engagement, dormancy, exit, and sometimes reactivation. The same person can own several products. Closing a card is not necessarily leaving the bank; a funded but unused account is not necessarily an active relationship; and a reduced balance is not automatically balance flight. These distinctions are not semantic niceties: they define the unit of analysis and prevent the dashboard from promising more than the data can support.
+\subsection{Customer churn}
 
-Table~\ref{tab:churn-taxonomy} states the project taxonomy. Only the first row is represented by the source label. The other concepts require event history, product records, or intervention data that the current base does not contain.
+Customer exit is usually the outcome of repeated decisions rather than a single event. A customer may begin by reducing transaction frequency, using another bank for salary receipt or payments, allowing an account to become inactive, or seeking help after a failed transaction. The final act of closing an account may occur much later. Longitudinal evidence from a European financial-services company shows why time matters: Van den Poel and Larivi\`ere modelled attrition for 47,157 customers using relationship history, behavioural information, demographics, and macro-environmental conditions, and identified critical periods early in the customer relationship \citep{vandenpoelLariviere2004}.
 
-\begin{table}[H]
-\centering
-\caption{Churn and relationship taxonomy used in this report [scope control].}
-\label{tab:churn-taxonomy}
-\small
-\begin{tabularx}{\textwidth}{P{0.24\textwidth}Y P{0.31\textwidth}}
-\toprule
-\textbf{Concept} & \textbf{Operational meaning} & \textbf{Evidence available here}\\
-\midrule
-Customer attrition / churn & Relationship exit represented by the supplied label & Historical static proxy only (\observed)\\
-Account closure & Closure of a particular account & Not observed\\
-Product attrition & Loss of a card, deposit, or loan product & Not observed\\
-Dormancy & No qualifying activity in a declared window & Demonstration only in simulated events (\synthetic)\\
-Digital disengagement & Decline in app or online use relative to a personal baseline & Demonstration only in simulated events (\synthetic)\\
-Balance flight & Sustained material decrease in deposits & Not inferable from one balance snapshot\\
-Preventable churn & Churn avoided because of an intervention & Unknown until a controlled experiment (\measured)\\
-\bottomrule
-\end{tabularx}
-\end{table}
+The drivers are concrete. In a study of 694 retail-banking customers in Australia and New Zealand, Colgate and Hedge found that switching followed service failures, pricing problems, and denied services; pricing problems had the largest effect on switching, while service failures generated more complaints before exit \citep{colgateHedge2001}. Keaveney's study of more than 500 service customers identified over 800 critical switching behaviours, grouped into pricing, inconvenience, core-service failures, failed service encounters, inadequate responses to failure, competition, ethical problems, and involuntary switching \citep{keaveney1995}. For banks, these categories translate into recognisable customer experiences: an unexplained charge, an unsuccessful payment, a difficult digital task, a long wait for support, or poor recovery after an error.
 
-\subsection{The operational decision, not just the model}
+\subsection{Retention economics}
 
-The intended decision cycle is: (1) check contact permission, fatigue cap, and policy exclusions; (2) route an unresolved service case to service recovery rather than promotion; (3) assign a behavioural segment using the persisted segment rule; (4) overlay a validated propensity tier and an explicitly governed value tier when those components exist; (5) allocate eligible customers to a treatment or control condition; and (6) record exposure, outcome, cost, complaint, opt-out, and the reason for any human override. The no-contact decision is a valid outcome, not a missing action.
+Churn affects the economics of a bank in three ways. First, it removes future contribution from deposits, payments, lending, and related products. Second, it increases the pressure to acquire and onboard replacement customers. Third, it can reveal a product or service weakness that affects many customers before it appears in aggregated financial reporting. The commercial case for retention is therefore not simply to keep an account open. It is to preserve a profitable, trusted, and active relationship while directing service resources to the points where they create the greatest value.
 
-This design separates four constructs that are often conflated. Behavioural segmentation groups comparable observed or simulated usage patterns. A churn-propensity tier is a supervised statistical estimate. A value tier requires contribution data or transparent scenarios; balance and estimated salary are not profit. Treatment eligibility reflects consent, open cases, suitability, and capacity. A customer should never receive an offer merely because they fall into a cluster or have a high score.
+The appropriate economic measure is incremental contribution. A retention programme creates value when the additional contribution retained because of the intervention exceeds the cost of contact, incentive, service delivery, and measurement. Customer balance, transaction volume, and estimated salary are inputs to understanding a relationship; they are not measures of profit. This distinction matters because a campaign aimed at a high-balance customer may still destroy value if the intervention is expensive, poorly targeted, or inappropriate for the customer's need.
 
-\subsection{Economics and causal discipline}
+\subsection{Retention decisions}
 
-Retention economics should be framed in incremental terms. Where real contribution data are unavailable, the analysis may use a labelled scenario but cannot call it realised revenue. For a planned campaign, the relevant relationship is
+Churn prediction and retention management answer different questions. A propensity model ranks customers by their likelihood of an observed exit. Behavioural segmentation groups customers with similar usage patterns and service needs. A value tier sets the financial importance of the relationship. Eligibility rules determine whether a customer may be contacted at all. Combining these components enables a bank to move from a generic risk list to a decision: whether to provide service recovery, onboarding support, digital assistance, a product review, or no contact.
 
-\begin{equation}
-\text{Incremental net value} = N_{\text{eligible}} \times \Delta r \times V_{\text{saved}}
-- N_{\text{contacted}} \times C_{\text{contact}}
-- C_{\text{incentive}} - C_{\text{execution}} - C_{\text{experiment}},
-\label{eq:campaign-value}
-\end{equation}
+The quality of that decision depends on measurement. A high propensity score identifies a relationship that deserves attention; it does not determine whether a specific intervention will change the outcome. Banks therefore need an eligible customer population, a defined treatment, an appropriate comparison group, and recorded outcomes such as retention, customer activity, complaint, opt-out, and cost. This turns churn management into a business discipline: identify the relationship at risk, choose an action that addresses the relevant customer need, and measure the commercial and customer impact of that action.
 
-where $\Delta r$ is the incremental retention effect and $V_{\text{saved}}$ is incremental contribution per saved customer. In the current project, both are unknown. Equation~\ref{eq:campaign-value} is therefore a \scenario{} template, not a profit estimate. If $V_{\text{saved}}>0$, the break-even effect is total incremental campaign cost divided by $N_{\text{eligible}} \times V_{\text{saved}}$. This makes the decision testable: Finance can set the approved assumptions before launch; Analytics can later replace them with an experiment estimate and its uncertainty interval.
+\section{Data}
 
-The causal boundary is central. A high historical churn rate in a cluster may prioritise further investigation, but it does not prove that the cluster's proposed treatment will retain customers. Randomization within a frozen, eligible segment is needed to separate the treatment outcome from background change, self-selection, seasonality, and regression to the mean. Promotional outreach is suppressed when service recovery is more appropriate.
+\subsection{Data overview}
 
-\subsection{Stakeholder decisions and safeguards}
+The analysis uses the course-specified Kaggle \emph{Bank Customer Churn Dataset}, published by Gaurav Topre \citep{topreKaggle}. It is a static, customer-level retail-banking dataset: each row represents one customer relationship, and the relationship-exit outcome is recorded in the \texttt{Exited}/\texttt{churn} label. The source supports portfolio profiling, historical churn analysis, and supervised-model development; it provides the starting point for the Bank X case described in the preceding section.
 
-The same analytical output serves different decisions. The executive owner needs a portfolio priority and a review date. CRM needs a contactable population, channel, suppression rules, and capacity. Product and Operations need a falsifiable friction hypothesis and an instrumentation backlog. Finance needs a budget cap and break-even sensitivity. Risk and Compliance need aggregate fairness checks, consent controls, an audit trail, and a stop authority. Customers need transparent service choices and an opt-out pathway, not disclosure of an internal score. This report keeps gender and recorded country out of segment fitting and treatment selection; they can only support aggregate fairness review once a legitimate, governed use has been defined.
+The preprocessing run reads and retains all 10,000 source rows. It finds no duplicate customer IDs, no missing values in the retained fields, and no rows requiring deletion or imputation. The resulting analysis base separates the customer attributes from the churn label, preventing the outcome from entering segmentation or feature-generation inputs. The portfolio's historical churn prevalence is 20.37\% (2,037 of 10,000 customers). Appendix~\ref{app:data-dictionary} provides the complete field-level dictionary, including type, business meaning, and analytical role.
 
-\section{Data overview, provenance, and analytical design}
+\subsection{Data provenance and preparation}
 
-\subsection{Observed static base and source audit}
+The preparation pipeline is versioned as \texttt{kaggle-static-preprocess-v1}. Its quality manifest records the source-file checksum, the row-level audit, the target-separation rule, and hashes for the resulting customer and label tables. The raw-file SHA-256 is \texttt{90f6625c31bdfcb0cde3b94c4f3004e43795e382921d0a5be67c4bd490b38818}. The source label is retained as a historical relationship-exit outcome; it is not used to construct behavioural segments or generate the primary behavioural extension.
 
-The observed base is the course-specified Kaggle extract, \emph{Bank Customer Churn Dataset}, uploaded by Gaurav Topre \citep{topreKaggle}. Preprocessing version \texttt{kaggle-static-preprocess-v1} read 10,000 rows and retained all 10,000: no row was deleted, no value was imputed, and the audit found zero duplicate customer identifiers and zero missing values in the retained fields. The raw-file SHA-256 recorded in the quality manifest is \texttt{90f6625c31bdfcb0cde3b94c4f3004e43795e382921d0a5be67c4bd490b38818}. This checksum demonstrates which local file was used; it does not validate the upstream collection process or representativeness.
-
-The dataset contains one row per customer and a static historical label. It includes customer ID, credit score, recorded country category, gender category, age, tenure, balance, number of products, card flag, active-member flag, estimated salary, and \texttt{Exited}/\texttt{churn}. The preprocessing pipeline separates the target into a label table, so clustering and feature-generation code cannot read it by accident. Its overall historical label prevalence is 2,037/10,000 = 20.37\% (95\% Wilson CI: 19.59\%--21.17\%). This is a descriptive sample statistic, not an expected future bank churn rate.
-
-The exact Kaggle URL is now recorded in the bibliography; however, the repository does not yet contain a documented licence review or source-version metadata from Kaggle. That provenance item remains \textbf{BLOCKED}. Moreover, the source currency for balance and estimated salary is unspecified. The report never treats either field as salary income paid into the bank, deposit value, revenue, customer lifetime value, or a targeting rule.
+The source provides a cross-sectional customer profile rather than a transaction ledger. It contains no timestamps for observation, scoring, or outcome windows, and it contains no campaign assignment, contact preference, service-case, transaction, or realised contribution record. Those data requirements shape the synthetic behavioural design and the later retention-measurement plan. The source currency for balance and estimated salary is unspecified, so both are treated as profile variables rather than contribution or customer-lifetime-value measures.
 
 \begin{table}[H]
 \centering
@@ -501,7 +474,7 @@ Financial semantics & Balance and estimated salary use unspecified source curren
 \end{tabularx}
 \end{table}
 
-\subsection{Why a synthetic behavioural extension is used}
+\subsection{Synthetic behavioural data}
 
 The static base has no transaction, app, channel, or service-case history. It cannot answer whether a customer was recently active, whether app use is declining, whether a payment failed, or whether an unresolved case should suppress an offer. To rehearse those analytical and engineering requirements, the project generates six monthly periods of labelled \synthetic{} data using a fixed seed. The generator receives only label-free static attributes and seeded random variation. It explicitly rejects an input table that contains \texttt{churn}, so the primary behavioural simulation is not label-conditioned.
 
@@ -530,7 +503,7 @@ The resulting tables model a minimal customer-event architecture: customer-month
 
 The extension supports method development and interface testing, not discovery of actual customer motives. Its correlations are construction assumptions. Changing the seed changes simulated customers; it does not constitute external validation. Every display below marks whether its numbers originate in the static base, the simulation, a future model estimate, or a scenario.
 
-\subsection{Analytical workflow and controls}
+\subsection{Analytical design}
 
 The workflow deliberately separates descriptive analysis, segmentation, prediction, and treatment measurement. First, static fields support a source audit and historical cohort descriptions. Second, simulation produces event facts and cutoff-safe behavioural features. Third, clustering is fit without the churn label, IDs, gender, or country. Only after assignment is frozen is the historical static label joined for a descriptive cross-tab. Fourth, a later classification pipeline must use train-only transformations, untouched test data, calibration, subgroup diagnostics, and capacity-based threshold selection. Finally, treatment performance is measured by a future randomized pilot, not imputed from a churn score.
 
@@ -927,6 +900,38 @@ Post-pilot & Executive sponsor & Stop, iterate, or scale based on incremental ou
 This is a static-data and synthetic-behaviour prototype. Its strongest completed contribution is an auditable customer-analysis workflow that distinguishes observed source facts from simulation and from future experimentation. The historical churn label has no known prospective horizon. The behavioural tables, segment profiles, service cases, cash-flow scenarios, and decision cube are generated for design and testing; they do not describe a real bank's customers. The classification module is not yet trained, the economic inputs are not approved financial facts, and no treatment has been delivered or measured.
 
 These boundaries do not make the work unhelpful. They make its next decision clear. The project now has a reproducible structure for moving from static labels to a governed retention system: validate source provenance, collect real event and outcome data, complete a leakage-safe model comparison, preserve the separation between segment, risk, value, and eligibility, and learn from a randomized pilot before scaling. Until those steps are complete, the correct project status is \textbf{IMPLEMENTATION IN PROGRESS / PROTOTYPE ONLY}, not production readiness.
+
+\appendix
+\section{Source Data Dictionary}
+\label{app:data-dictionary}
+
+Table~\ref{tab:source-data-dictionary} documents the static source fields used in the Bank X case. The churn label is held in a separate label table after preprocessing. The synthetic behavioural extension has its own field-level documentation in \texttt{docs/data\_dictionary\_v2.md}; it is not a source-data dictionary.
+
+\begin{longtable}{P{0.22\textwidth}P{0.16\textwidth}P{0.34\textwidth}Y}
+\caption{Static source data dictionary.}\label{tab:source-data-dictionary}\\
+\toprule
+\textbf{Field} & \textbf{Type} & \textbf{Business meaning} & \textbf{Analytical role}\\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Field} & \textbf{Type} & \textbf{Business meaning} & \textbf{Analytical role}\\
+\midrule
+\endhead
+\texttt{customer\_id} & string & Pseudonymous source customer identifier. & Primary key; excluded from modelling and segmentation.\\
+\texttt{credit\_score} & integer & Source credit-score value. & Customer-profile attribute; candidate classifier input subject to governance.\\
+\texttt{country} & category & Recorded geographic category: France, Germany, or Spain. & Portfolio comparison and aggregate fairness review; excluded from behavioural clustering and treatment selection.\\
+\texttt{gender} & category & Recorded gender category. & Aggregate fairness review only; excluded from behavioural clustering and treatment selection.\\
+\texttt{age} & integer & Customer age in years. & Customer-profile attribute; reviewed for fairness and modelling governance.\\
+\texttt{tenure} & integer & Length of relationship in source years. & Customer-profile attribute and candidate classifier input.\\
+\texttt{balance} & numeric & Recorded account balance in an unspecified source currency. & Profile attribute; not interpreted as revenue, contribution, or CLV.\\
+\texttt{products\_number} & integer & Number of products held by the customer. & Relationship-depth attribute and candidate classifier input.\\
+\texttt{credit\_card} & binary & Source indicator for credit-card ownership. & Product-holding attribute and candidate classifier input.\\
+\texttt{active\_member} & binary & Source active-member flag. & Relationship-status attribute; not interpreted as app-session activity.\\
+\texttt{estimated\_salary} & numeric & Source estimated-salary value in an unspecified currency. & Profile attribute; not interpreted as income paid into the bank, contribution, or CLV.\\
+\texttt{churn} & binary & Static relationship-exit label, separated from the customer table during preprocessing. & Supervised-learning outcome and descriptive cross-tab only; never an input to segmentation or behaviour generation.\\
+\texttt{source\_type} & string & Technical lineage marker for the Kaggle base. & Audit and provenance only.\\
+\bottomrule
+\end{longtable}
 
 \bibliographystyle{apalike}
 \bibliography{references}
